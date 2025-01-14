@@ -6,6 +6,7 @@ import com.example.wallet_api.DTOs.DTO_CreateWallet;
 import com.example.wallet_api.DTOs.DTO_ExistingWallet;
 import com.example.wallet_api.DTOs.DTO_RequestWallet;
 import com.example.wallet_api.DTOs.DTO_UpdateWallet;
+import com.example.wallet_api.Interfaces.IWalletService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
@@ -14,9 +15,9 @@ import java.util.Optional;
 @RequestMapping("/wallet")
 public class WalletController {
 
-    private final WalletService walletService;
+    private final IWalletService walletService;
 
-    public WalletController(WalletService walletService) {
+    public WalletController(IWalletService walletService) {
         this.walletService = walletService;
     }
 

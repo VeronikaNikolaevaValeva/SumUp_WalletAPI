@@ -3,10 +3,11 @@ package com.example.wallet_api.Services;
 import com.example.wallet_api.Models.User;
 import com.example.wallet_api.Repository.UserRepository;
 import com.example.wallet_api.DTOs.DTO_CreateUser;
+import com.example.wallet_api.Interfaces.IUserService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UserService implements IUserService {
 
     private final UserRepository userRepository;
 
@@ -14,6 +15,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    @Override
     public long createUser(DTO_CreateUser user_dto) {
         try {
             User user = new User();

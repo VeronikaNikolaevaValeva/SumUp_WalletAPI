@@ -8,12 +8,13 @@ import com.example.wallet_api.DTOs.DTO_CreateWallet;
 import com.example.wallet_api.DTOs.DTO_ExistingWallet;
 import com.example.wallet_api.DTOs.DTO_RequestWallet;
 import com.example.wallet_api.DTOs.DTO_UpdateWallet;
+import com.example.wallet_api.Interfaces.IWalletService;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
-public class WalletService {
+public class WalletService implements IWalletService{
 
     private final WalletRepository walletRepository;
     private final UserRepository userRepository;
@@ -23,6 +24,7 @@ public class WalletService {
         this.userRepository = userRepository;
     }
 
+    @Override
     public long createWallet(DTO_CreateWallet wallet_dto) {
         try {
             User user = userRepository.findById(wallet_dto.getUserId())
@@ -40,6 +42,7 @@ public class WalletService {
         }
     }
 
+    @Override
     public Optional<DTO_ExistingWallet> getExistingWallet(DTO_RequestWallet dto_requestWallet) {
         try {
             Wallet wallet = walletRepository.findById(dto_requestWallet.getWalletId())
@@ -61,6 +64,7 @@ public class WalletService {
         }
     }
 
+    @Override
     public boolean deposit(DTO_UpdateWallet wallet_dto) {
         try {
             Wallet wallet = walletRepository.findById(wallet_dto.getWalletId())
@@ -80,6 +84,7 @@ public class WalletService {
         }
     }
 
+    @Override
     public boolean withdraw(DTO_UpdateWallet wallet_dto) {
         try {
             Wallet wallet = walletRepository.findById(wallet_dto.getWalletId())

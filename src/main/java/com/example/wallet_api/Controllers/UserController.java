@@ -3,6 +3,7 @@ package com.example.wallet_api.Controllers;
 import com.example.wallet_api.Models.User;
 import com.example.wallet_api.Services.UserService;
 import com.example.wallet_api.DTOs.DTO_CreateUser;
+import com.example.wallet_api.Interfaces.IUserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
@@ -11,9 +12,9 @@ import java.util.Optional;
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserService userService;
+    private final IUserService userService;
 
-    public UserController(UserService userService) {
+    public UserController(IUserService userService) {
         this.userService = userService;
     }
 
