@@ -1,1 +1,1 @@
-# SumUp_WalletAPI
+Please check out the master branch :). 
